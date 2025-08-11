@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -45,8 +47,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Page<UserResponseDTO> getAllUsers(Pageable pageable) {
-        return null;
+    public List<UserResponseDTO> getAllUsers() {
+        return userRepository.findAll().stream().map(
+                user -> new UserResponseDTO(
+                        user.getId(),
+                        user.getUsername(),
+                        user.getEmail(),
+                        user.getFull_name(),
+                        user.getRole().name()
+                        ))
+                .toList();
     }
 
     @Override
