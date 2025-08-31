@@ -28,6 +28,17 @@ public class UserRequestDTO {
     public UserRequestDTO() {
     }
 
+    @Override
+    public String toString() {
+        return "UserRequestDTO{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
     public UserRequestDTO(String username, String email, String password, String fullName, String role) {
         this.username = username;
         this.email = email;
