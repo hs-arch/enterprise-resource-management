@@ -109,8 +109,52 @@ Content-Type: application/json
 
 ---
 
-## 📅 Next Steps
-- Add **GET**, **PUT**, **DELETE** endpoints for Users.
-- Implement **Product** & **Order** modules.
-- Add **JWT authentication**.
-- Integrate **Audit Logging**.
+### Get User
+```bash
+GET http://localhost:8080/api/users/{id}
+```
+**Response Body:**
+```json
+{
+  "id": 1,
+  "username": "johndoe",
+  "email": "john@example.com",
+  "fullName": "John Doe",
+  "role": "ADMIN"
+}
+```
+
+---
+
+### Update User - by id or by username
+```bash
+POST http://localhost:8080/api/users/id/{id}
+POST http://localhost:8080/api/users/name/{name}
+Content-Type: application/json
+```
+
+**Request Body**
+```json
+
+{
+  "email": "john.new@example.com",
+  "fullName": "Johnathan Doe",
+  "role": "USER"
+}
+```
+
+**Response** 
+```json
+{
+  "id": 1,
+  "username": "johndoe",
+  "email": "john.new@example.com",
+  "fullName": "Johnathan Doe",
+  "role": "USER"
+}
+```
+---
+### Delete User
+```bash
+DELETE http://localhost:8080/api/users/{id} 
+```
