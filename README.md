@@ -7,7 +7,7 @@ A backend application built with **Java + Spring Boot** for managing users, prod
 ## 📌 Tech Stack
 - **Java 17** (or higher)
 - **Spring Boot** (Web, Data JPA, Validation)
-- **PostgreSQL** (Database)
+- **MySQL** (Database)
 - **Flyway** (Database migrations)
 - **Lombok** (Boilerplate reduction)
 - **BCrypt** (Password hashing)
@@ -50,8 +50,8 @@ cd erm-api
 ### 2️⃣ Configure Database
 Edit `src/main/resources/application.properties`:
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/erm_db
-spring.datasource.username=postgres
+spring.datasource.url=jdbc:mysql://localhost:3002/erm_db
+spring.datasource.username=yourusername
 spring.datasource.password=yourpassword
 
 spring.jpa.hibernate.ddl-auto=none
