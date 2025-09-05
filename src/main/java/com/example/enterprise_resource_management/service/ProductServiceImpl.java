@@ -70,4 +70,27 @@ public class ProductServiceImpl implements ProductService{
             throw new EntityNotFoundException("This id: "+ id +", is not present.");
         }
     }
+
+    @Override
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
+
+    @Override
+    public ProductResponseDTO updateProduct(ProductRequestDTO updateProduct, Long id) {
+
+        Optional<Product> product =  productRepository.findById(id);
+
+        product.get().setSku(updateProduct.getSku());
+        product.get().setName(updateProduct.getName());
+        product.get().setDescription(updateProduct.getDescription());
+        product.get().setPrice(updateProduct.getPrice());
+        product.get().setStockQty(updateProduct.getStockQty());
+        product.get().setReorderThreshold(updateProduct.getReorderThreshold());
+        product.get().setSupplier(updateProduct.getSupplier());
+
+        productRepository.save(product.get());
+
+        return mapToDTO(product.get());
+    }
 }
