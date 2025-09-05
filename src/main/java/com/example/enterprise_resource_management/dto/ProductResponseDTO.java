@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class ProductResponseDTO {
 
     private Long id;
@@ -23,6 +23,20 @@ public class ProductResponseDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    public ProductResponseDTO(){}
+
+    public ProductResponseDTO(Long id, String sku, String name, String description, Double price, int stockQty, int reorderThreshold, String supplier, LocalDateTime createdAt, LocalDateTime updatedAt){
+        this.id=id;
+        this.sku=sku;
+        this.name=name;
+        this.description=description;
+        this.price=price;
+        this.stockQty=stockQty;
+        this.reorderThreshold=reorderThreshold;
+        this.supplier=supplier;
+        this.createdAt=createdAt;
+        this.updatedAt=updatedAt;
+    }
 
 //    ---------- Getters and Setters below
 
